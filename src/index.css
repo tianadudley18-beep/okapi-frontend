@@ -1,0 +1,131 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * { box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+    @apply bg-gray-50 text-gray-900 transition-colors duration-300;
+    @apply dark:bg-navy-900 dark:text-slate-100;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3, h4, h5 {
+    font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  }
+
+  ::selection {
+    background: rgba(79,127,255,0.25);
+    color: inherit;
+  }
+}
+
+@layer components {
+  /* ── Buttons ──────────────────────────────────────────────── */
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2;
+    @apply bg-electric-500 hover:bg-electric-600 active:bg-electric-700 text-white;
+    @apply font-semibold py-2.5 px-5 rounded-lg text-sm;
+    @apply transition-all duration-200;
+    @apply hover:-translate-y-0.5 hover:shadow-glow active:translate-y-0 active:shadow-none;
+    @apply disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:translate-y-0 disabled:hover:shadow-none;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2;
+    @apply bg-white hover:bg-gray-50 active:bg-gray-100 text-gray-700;
+    @apply font-semibold py-2.5 px-5 rounded-lg text-sm border border-gray-200;
+    @apply transition-all duration-200;
+    @apply hover:-translate-y-0.5 hover:shadow-card active:translate-y-0;
+    @apply dark:bg-white/[0.07] dark:hover:bg-white/[0.12] dark:text-slate-100 dark:border-white/[0.12];
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2;
+    @apply text-gray-500 hover:text-gray-900 hover:bg-gray-100;
+    @apply font-medium py-2 px-3 rounded-lg text-sm;
+    @apply transition-all duration-200;
+    @apply dark:text-slate-400 dark:hover:text-white dark:hover:bg-white/[0.08];
+  }
+
+  .btn-danger {
+    @apply inline-flex items-center justify-center gap-2;
+    @apply bg-red-50 hover:bg-red-100 text-red-600 hover:text-red-700;
+    @apply font-medium py-2 px-3 rounded-lg text-sm border border-red-200;
+    @apply transition-all duration-200;
+    @apply dark:bg-red-500/[0.12] dark:hover:bg-red-500/[0.2] dark:text-red-400 dark:border-red-500/20;
+  }
+
+  /* ── Inputs ───────────────────────────────────────────────── */
+  .input-field {
+    @apply w-full px-4 py-2.5 rounded-lg text-sm;
+    @apply border border-gray-200 bg-white text-gray-900 placeholder-gray-400;
+    @apply focus:outline-none focus:ring-2 focus:ring-electric-500/50 focus:border-electric-500;
+    @apply transition-all duration-200;
+    @apply dark:bg-navy-800 dark:border-white/[0.12] dark:text-slate-100 dark:placeholder-slate-500;
+    @apply dark:focus:ring-electric-500/40 dark:focus:border-electric-500/70;
+  }
+
+  /* ── Cards ────────────────────────────────────────────────── */
+  .card {
+    @apply rounded-xl p-6 transition-all duration-300;
+    @apply bg-white border border-gray-200 shadow-card;
+    @apply dark:bg-navy-700/60 dark:border-white/[0.08] dark:shadow-glass;
+  }
+
+  /* KPI card with gradient accent top-border */
+  .kpi-card {
+    @apply card relative overflow-hidden;
+    @apply hover:-translate-y-1 hover:shadow-card-hover;
+    @apply dark:hover:shadow-glass-hover dark:hover:bg-navy-700/80;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease;
+  }
+
+  .kpi-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: var(--accent-gradient);
+    border-radius: 12px 12px 0 0;
+  }
+
+  /* ── Animated login gradient panel ───────────────────────── */
+  .login-panel {
+    background: linear-gradient(135deg, #0A0F2E 0%, #1a1a70 35%, #0d2468 65%, #0A0F2E 100%);
+    background-size: 400% 400%;
+    animation: gradient-shift 10s ease infinite;
+  }
+
+  /* ── Skeleton shimmer ─────────────────────────────────────── */
+  .skeleton {
+    @apply rounded-lg;
+    background: linear-gradient(90deg, #e5e7eb 25%, #f3f4f6 50%, #e5e7eb 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.6s infinite;
+  }
+
+  .dark .skeleton {
+    background: linear-gradient(90deg,
+      rgba(255,255,255,0.05) 25%,
+      rgba(255,255,255,0.10) 50%,
+      rgba(255,255,255,0.05) 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.6s infinite;
+  }
+
+  /* ── Text gradient ────────────────────────────────────────── */
+  .text-gradient {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, #4F7FFF 0%, #8B5CF6 100%);
+  }
+
+  /* ── Page animation ───────────────────────────────────────── */
+  .page-enter {
+    animation: fade-up 0.35s ease both;
+  }
+}
