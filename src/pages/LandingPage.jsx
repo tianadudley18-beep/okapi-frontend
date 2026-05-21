@@ -201,9 +201,6 @@ export default function LandingPage() {
             </Link>
           </div>
 
-          <p className="mt-4 text-sm" style={{ color: 'rgba(245,237,214,0.30)' }}>
-            Sin tarjeta de crédito · Gratis para siempre en el plan básico
-          </p>
         </div>
       </section>
 
