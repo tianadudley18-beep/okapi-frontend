@@ -100,13 +100,7 @@ export default function ProjectsPage() {
         setShowModal(false)
         setModalStep(1)
         setForm({ name: '', description: '', color: PROJECT_COLORS[0], icon: 'chart', industry: 'general' })
-        // Check subscription before redirecting
-        const planRes = await fetch(`${API}/api/usage/messages`, { headers }).then(r => r.json()).catch(() => ({ plan: 'free' }))
-        if (!planRes.plan || planRes.plan === 'free') {
-          navigate('/subscription')
-        } else {
-          navigate(`/projects/${data.project.id}`)
-        }
+        navigate('/subscription')
       }
     } catch (err) {
       console.error(err)
