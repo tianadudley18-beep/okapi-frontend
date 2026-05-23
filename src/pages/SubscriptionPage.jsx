@@ -113,7 +113,7 @@ export default function SubscriptionPage() {
               ))}
             </ul>
             <button
-              onClick={() => setShowToast(true)}
+              onClick={() => window.open('https://okapi.lemonsqueezy.com/checkout/buy/33256972-c017-4608-83dd-42bd935d5e61', '_blank')}
               className="block w-full text-center font-semibold py-2.5 rounded-xl text-sm text-white transition-all duration-200"
               style={{ backgroundColor: '#4F7FFF' }}
               onMouseEnter={e => e.currentTarget.style.backgroundColor = '#2B5EEF'}
@@ -147,7 +147,7 @@ export default function SubscriptionPage() {
               ))}
             </ul>
             <button
-              onClick={() => setShowToast(true)}
+              onClick={() => window.open('https://okapi.lemonsqueezy.com/checkout/buy/5ff74d23-3258-4d10-a5fb-8f3d96e08e6f', '_blank')}
               className="block w-full text-center font-medium py-2.5 rounded-xl text-sm border transition-all duration-200"
               style={{ borderColor: 'rgba(79,127,255,0.4)', color: '#A5BFFF', backgroundColor: 'transparent' }}
               onMouseEnter={e => e.currentTarget.style.backgroundColor = 'rgba(79,127,255,0.1)'}
