@@ -171,6 +171,19 @@ export default function SubscriptionPage() {
             Continuar sin suscripción por ahora
           </Link>
         </p>
+
+        {/* Dev bypass */}
+        <p className="text-center mt-3 text-xs" style={{ color: 'rgba(245,237,214,0.15)' }}>
+          <Link
+            to="/projects"
+            className="underline underline-offset-2 transition-colors"
+            style={{ color: 'rgba(245,237,214,0.15)' }}
+            onMouseEnter={e => e.currentTarget.style.color = 'rgba(245,237,214,0.40)'}
+            onMouseLeave={e => e.currentTarget.style.color = 'rgba(245,237,214,0.15)'}
+          >
+            Continuar sin suscripción (modo prueba)
+          </Link>
+        </p>
       </div>
 
     </div>

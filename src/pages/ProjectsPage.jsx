@@ -104,8 +104,16 @@ export default function ProjectsPage() {
         setShowModal(false)
         setModalStep(1)
         setForm({ name: '', description: '', color: PROJECT_COLORS[0], icon: 'chart', industry: 'general' })
-        console.log('[createProject] redirecting to /subscription')
-        window.location.href = '/subscription'
+        const adminEmails = ['tati.bolso13@gmail.com', 'rociosodi.22@gmail.com']
+        const userEmail = session?.user?.email
+        console.log('[createProject] user email:', userEmail)
+        if (adminEmails.includes(userEmail)) {
+          console.log('[createProject] admin user, skipping subscription redirect')
+          window.location.href = `/projects/${data.project.id}`
+        } else {
+          console.log('[createProject] redirecting to /subscription')
+          window.location.href = '/subscription'
+        }
       } else {
         console.error('[createProject] unexpected response:', data)
         alert('Error al crear el proyecto: ' + (data.error || JSON.stringify(data)))
