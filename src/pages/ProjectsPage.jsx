@@ -88,26 +88,36 @@ export default function ProjectsPage() {
     e.preventDefault()
     if (!form.name.trim()) return
     setSaving(true)
+    console.log('[createProject] API URL:', API)
+    console.log('[createProject] form:', form)
     try {
       const res = await fetch(`${API}/api/projects`, {
         method: 'POST',
         headers: { ...headers, 'Content-Type': 'application/json' },
         body: JSON.stringify(form),
       })
+      console.log('[createProject] response status:', res.status)
       const data = await res.json()
+      console.log('[createProject] response data:', data)
       if (data.project) {
         setProjects(p => [data.project, ...p])
         setShowModal(false)
         setModalStep(1)
         setForm({ name: '', description: '', color: PROJECT_COLORS[0], icon: 'chart', industry: 'general' })
-        navigate('/subscription')
+        console.log('[createProject] redirecting to /subscription')
+        window.location.href = '/subscription'
+      } else {
+        console.error('[createProject] unexpected response:', data)
+        alert('Error al crear el proyecto: ' + (data.error || JSON.stringify(data)))
+        setSaving(false)
       }
     } catch (err) {
-      console.error(err)
-    } finally {
+      console.error('[createProject] error:', err)
+      alert('Error al crear el proyecto: ' + err.message)
       setSaving(false)
     }
   }
+
 
   async function deleteProject(e, id) {
     e.stopPropagation()
