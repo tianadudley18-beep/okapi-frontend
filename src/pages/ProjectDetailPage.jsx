@@ -937,16 +937,13 @@ Respondé en español con exactamente este formato:
           TAB 2: ANÁLISIS
       ══════════════════════════════════════════════════════════ */}
       {activeTab === 'analisis' && (
-        <PaywallOverlay active={userPlan === 'free'}>
-          <AnalysisTab files={files} industry={project?.industry || 'general'} />
-        </PaywallOverlay>
+        <AnalysisTab files={files} industry={project?.industry || 'general'} />
       )}
 
       {/* ══════════════════════════════════════════════════════════
           TAB 3: CHAT IA
       ══════════════════════════════════════════════════════════ */}
       {activeTab === 'chat' && (
-        <PaywallOverlay active={userPlan === 'free'}>
         <div className="bg-white dark:bg-navy-800 rounded-2xl border border-gray-100 dark:border-white/[0.08] flex flex-col" style={{ height: 'calc(100vh - 320px)', minHeight: 400 }}>
           {/* Chat header */}
           <div className="flex items-center gap-3 p-4 border-b border-gray-100 dark:border-white/[0.06]">
@@ -1142,7 +1139,6 @@ Respondé en español con exactamente este formato:
             )}
           </div>
         </div>
-        </PaywallOverlay>
       )}
 
       {/* ── Add existing file modal ── */}
